@@ -7,7 +7,7 @@ tBody.addEventListener("click", (e) => {
 
   if (item) {
     document.getElementById("previewImg").src = item.dataset.img;
-    document.getElementById("judulCard").src = item.dataset.meal;
+    document.getElementById("judulCard").textContent = item.dataset.meal;
   }
 });
 

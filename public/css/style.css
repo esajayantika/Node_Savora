@@ -53,9 +53,8 @@
 }
 /* mengatur tampilan body dari main-layout */
 .page-wrapper {
-  padding-top: 65px;
+  padding-top: 68px;
   min-height: 100vh;
-  display: flex;
   background-color: #fff9f5;
 }
 
@@ -74,7 +73,7 @@
 /* nav naik 1 lvl dari container main-layout */
 .navbar > .container-fluid {
   justify-content: flex-start;
-  padding-left: 1rem;
+  padding-left: 2rem;
 }
 
 /* pengaturan jarak konten navbar */
@@ -159,4 +158,47 @@
   .myfav-table thead {
     display: none;
   }
+}
+/* ini buat edit card preview */
+.Preview {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ini buat edit background ingredient guide */
+.decoration {
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+  padding: 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.layer {
+  position: relative;
+}
+
+/* bagian blur, dan menyatu dengan backgound */
+.layer::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background-image: url("/img/ingredients.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(75px) saturate(100%);
+  opacity: 0.5;
+  z-index: 0;
+}
+/* konten asli */
+.layer img {
+  position: relative;
+  z-index: 1;
+  /* width: 100%; */
+  display: block;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #fff9f5 15%, #fff9f5 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, #fff9f5 15%, #fff9f5 85%, transparent 100%);
+  -webkit-mask-composite: source-in, source-in;
+  mask-image: linear-gradient(to right, transparent 0%, #fff9f5 15%, #fff9f5 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, #fff9f5 15%, #fff9f5 85%, transparent 100%);
+  mask-composite: intersect;
 }

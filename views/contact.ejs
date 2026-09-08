@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-8">
-      <h2>Daftar Supplier</h2>
-      <a href="/contact/add" class="btn btn-primary mb-2">Tambah data supplier</a>
+    <div class="col-lg-7 ps-0">
+      <h2 class="judulMyfav pt-0">Ingredient Guide</h2>
+      <a href="/contact/add" class="btn btn-primary mb-2 ms-1" style="background-color: #3d2b1f; color: #ffffff;">Add Source</a>
       <% if (pesan.length !== 0) { %>
        <div class="alert alert-success fw-bold" role="alert">
             <%= pesan %>
@@ -12,9 +12,9 @@
   <thead>
     <tr>
       <th scope="col">No</th>
-      <th scope="col">Nama</th>
-      <th scope="col">No Hp</th>
-      <th scope="col">Aksi</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -22,7 +22,7 @@
       <tr>
         <td colspan="4">
           <div class="alert alert-danger fw-bold" role="alert">
-            Data supplier masih Kosong !!!
+            No Ingredient Source !!!
           </div>
         </td>
       </tr>
@@ -38,6 +38,11 @@
     
   </tbody>
 </table>
+    </div>
+    <div class="col-lg-5 decoration">
+      <div class="layer">
+        <img src="/img/Ingredients.jpg" alt="ingredients">
+      </div>
     </div>
   </div>
 </div>
