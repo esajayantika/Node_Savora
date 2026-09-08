@@ -145,7 +145,7 @@ app.get("/contact", async (req, res) => {
   const contacts = await Supplier.find();
   res.render("contact", {
     layout: "layouts/main-layout",
-    title: "Supplier Contact",
+    title: "Ingredient Guide",
     contacts,
     pesan: req.flash("pesan"),
   });
@@ -154,7 +154,7 @@ app.get("/contact", async (req, res) => {
 //halaman form tambah data contact
 app.get("/contact/add", (req, res) => {
   res.render("add-contact", {
-    title: "Add Supplier Contact",
+    title: "Add Ingredient Source",
     layout: "layouts/main-layout",
   });
 });
@@ -165,18 +165,18 @@ app.post(
     body("nama").custom(async (value) => {
       const duplikat = await Supplier.findOne({ nama: value });
       if (duplikat) {
-        throw new Error("Nama Supplier Sudah Terdaftar!");
+        throw new Error("Ingredient Source Allready Listed!");
       }
       return true;
     }),
-    check("email", "Email Tidak Valid!!").isEmail(),
-    check("nomor", "Nomor HP Tidak Valid!").isMobilePhone("id-ID"),
+    check("email").optional({ checkFalsy: true }).isEmail().withMessage("Email is Not Valid!"),
+    check("nomor", "Phone Number Not Valid!").matches(/^[0-9+\-\s()]+$/),
   ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       res.render("add-contact", {
-        title: "Add Data Supplier Contact",
+        title: "Add Ingredient Source",
         layout: "layouts/main-layout",
         errors: errors.array(),
       });
@@ -184,7 +184,7 @@ app.post(
       try {
         await Supplier.create(req.body);
         //kirimkan flash message
-        req.flash("pesan", "Data Supplier Berhasil Ditambah!");
+        req.flash("pesan", "Success Adding Ingredient Source!");
         res.redirect("/contact");
       } catch (err) {
         //menangani eror koneksi DB
@@ -200,7 +200,7 @@ app.delete("/contact", async (req, res) => {
   try {
     await Supplier.deleteOne({ nama: req.body.nama });
     //kirim flash massage delete data
-    req.flash("pesan", "Data Supplier Berhasil Dihapus!");
+    req.flash("pesan", "Success Delete Ingredient Source!");
     res.redirect("/contact");
   } catch (err) {
     //Tangani masalah koneksi DB
@@ -214,7 +214,7 @@ app.get("/contact/edit/:nama", async (req, res) => {
   try {
     const contact = await Supplier.findOne({ nama: req.params.nama });
     res.render("edit-contact", {
-      title: "Change Data Supplier",
+      title: "Change Ingredient Source",
       layout: "layouts/main-layout",
       contact,
     });
@@ -232,21 +232,21 @@ app.put(
       const duplikat = await Supplier.findOne({ nama: value });
 
       if (value !== req.body.oldNama && duplikat) {
-        throw new Error("Nama Supplier Sudah Terdaftar!");
+        throw new Error("Ingredient Source Allready Listed!");
       }
 
       return true;
     }),
 
-    check("email", "Email Tidak Valid!!").isEmail(),
-    check("nomor", "Nomor HP Tidak Valid!").isMobilePhone("id-ID"),
+    check("email").optional({ checkFalsy: true }).isEmail().withMessage("Email is Not Valid!"),
+    check("nomor", "Phone Number Not Valid!").matches(/^[0-9+\-\s()]+$/),
   ],
 
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       res.render("edit-contact", {
-        title: "Change Data Supplier",
+        title: "Change Ingredient Source",
         layout: "layouts/main-layout",
         errors: errors.array(),
         contact: req.body,
@@ -259,7 +259,7 @@ app.put(
           email: req.body.email,
         });
         //kirimkan flash message
-        req.flash("pesan", "Data Supplier Berhasil Diubah!");
+        req.flash("pesan", "Success Change Ingredient Source!");
         res.redirect("/contact");
       } catch (err) {
         req.flash("error", err.message);
@@ -275,7 +275,7 @@ app.get("/contact/:nama", async (req, res) => {
     const contact = await Supplier.findOne({ nama: req.params.nama });
     res.render("detail", {
       layout: "layouts/main-layout",
-      title: "Detail Supplier",
+      title: "Detail Ingredient Source",
       contact,
     });
   } catch (err) {
