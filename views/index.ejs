@@ -59,10 +59,10 @@
 <div class="container-fluid px-3 my-4">
   <div class="row justify-content-center row-cols-1 row-cols-md-3 g-4">
     <% json.forEach(item => { %>
-      <div class="col-6">
-        <div class="card h-100 w-100 d-flex flex-column">
+      <div class="col-6" >
+        <div class="card h-100 w-100 d-flex flex-column" data-aos= "fade-down">
           <img src= <%= item.strMealThumb %> class="card-img-top" alt="<%= item.strMeal %>">
-          <div class="card-body d-flex flex-column">
+          <div class="card-body d-flex flex-column" >
             <h5 class="card-title card-img-overlay"><%= item.strMeal %></h5>
             <h6 class="card-subtitle mb-2"> <%= item.strCountry %></h6>
             <p class="card-text flex-grow-1"><%= item.strDesc %></p>

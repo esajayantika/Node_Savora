@@ -2,7 +2,7 @@
   color: #3d2b1f;
 }
 .content {
-  padding: 70px 5%;
+  padding: 70px 9%;
 }
 .content-text {
   max-width: 550px;
@@ -10,6 +10,9 @@
 }
 .content-text h2 {
   color: #3d2b1f;
+  background-color: #f8c76b;
+  padding: 5px;
+  border-radius: 10px;
 }
 .content-img {
   width: 100%;
