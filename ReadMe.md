@@ -10,15 +10,15 @@ kemudian pengguna bisa menyimpan resep yang diinginkan/ ingin digunakan.
 
 ## 2. Features
 
-* Recipe search
-* Recipe detail
-* Favorite recipes
-* PDF export
-* YouTube cooking video
-* AJAX search
-* Form validation
-* Ingredient Source
-* Notification
+- Recipe search
+- Recipe detail
+- Favorite recipes
+- PDF export
+- YouTube cooking video
+- AJAX search
+- Form validation
+- Ingredient Source
+- Notification
 
 ---
 
@@ -36,16 +36,23 @@ Other: Git, GitHub, PDFKit, express-session, express-validator, AOS
 Application Flow
 
 User
- ↓
+|
+v
 Browser
- ↓
+|
+v
 Express.js
- ├── MealDB API
- └── Local Storage (MongoDB) 
- └── Session
- ↓
+|
+v
+MealDB API
+|
+v
+MongoDB/Session
+|
+v
 EJS
- ↓
+|
+v
 Browser
 
 ---
@@ -53,15 +60,15 @@ Browser
 **EXAMPLE: Recipe Search**
 
 Search keyword
- ↓
+↓
 AJAX Request
- ↓
+↓
 /api/search
- ↓
+↓
 MealDB API
- ↓
+↓
 JSON Response
- ↓
+↓
 Update UI
 
 ---
@@ -102,16 +109,15 @@ npm install
 npm start
 ```
 
-Open on http://localhost:3000
----
+## Open on http://localhost:3000
 
 ## 7. Future Improvements
 
-* Deploy to VPS
-* MongoDB Atlas (cloud database)
-* User authentication
-* Improved error handling
-* Automated testing
+- Deploy to VPS
+- MongoDB Atlas (cloud database)
+- User authentication
+- Improved error handling
+- Automated testing
 
 ---
 
