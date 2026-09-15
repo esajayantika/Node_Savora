@@ -44,7 +44,7 @@ flowchart LR
 ```mermaid
 flowchart LR
   A[Keyword] --> B[AJAX Req]
-  B --> C[/api/search]
+  B --> C["/api/search"]
   C --> D[MealDB API]
   D --> E[JSON Response]
   E --> F[Update UI]
@@ -55,7 +55,7 @@ flowchart LR
 ```mermaid
 flowchart LR
   A[Click add] --> B[AJAX Req]
-  B --> C[/add-fav/]
+  B --> C["/add-fav/"]
   C --> D[MongoDB]
   D --> E[Notification]
 ```
