@@ -31,33 +31,33 @@ This website was created as an informational platform for recipe enthusiasts. It
 
 ```mermaid
 flowchart ID
-A[User] --> B[Browser]
-B --> C[Express.js]
-C --> D[MealDB API]
-D --> E[MongoDB/Session]
-E --> F[EJS]
-F --> B
+  A[User] --> B[Browser]
+  B --> C[Express.js]
+  C --> D[MealDB API]
+  D --> E[MongoDB/Session]
+  E --> F[EJS]
+  F --> B
 ```
 
 ### EXAMPLE: Recipe Search
 
 ```mermaid
 flowchart ID
-A[Keyword] --> B[AJAX Req]
-B --> C[/api/search]
-C --> D[MealDB API]
-D --> E[JSON Response]
-E --> F[Update UI]
+  A[Keyword] --> B[AJAX Req]
+  B --> C[/api/search]
+  C --> D[MealDB API]
+  D --> E[JSON Response]
+  E --> F[Update UI]
 ```
 
 ### EXAMPLE: Save to MyFav List
 
 ```mermaid
 flowchart ID
-A[Click add] --> B[AJAX Req]
-B --> C[/add-fav/]
-C --> D[MongoDB]
-D --> E[Notification]
+  A[Click add] --> B[AJAX Req]
+  B --> C[/add-fav/]
+  C --> D[MongoDB]
+  D --> E[Notification]
 ```
 
 ## 5. Project Highlights
