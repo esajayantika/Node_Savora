@@ -30,7 +30,7 @@ This website was created as an informational platform for recipe enthusiasts. It
 ### Application Flow
 
 ```mermaid
-flowchart ID
+flowchart LR
   A[User] --> B[Browser]
   B --> C[Express.js]
   C --> D[MealDB API]
@@ -42,7 +42,7 @@ flowchart ID
 ### EXAMPLE: Recipe Search
 
 ```mermaid
-flowchart ID
+flowchart LR
   A[Keyword] --> B[AJAX Req]
   B --> C[/api/search]
   C --> D[MealDB API]
@@ -53,7 +53,7 @@ flowchart ID
 ### EXAMPLE: Save to MyFav List
 
 ```mermaid
-flowchart ID
+flowchart LR
   A[Click add] --> B[AJAX Req]
   B --> C[/add-fav/]
   C --> D[MongoDB]
