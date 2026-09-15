@@ -1,7 +1,3 @@
-html,
-body {
-  overflow-x: hidden;
-}
 /* tampilan notifikasi sistem */
 #fav-message {
   position: fixed;
