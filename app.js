@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
-require("./utils/db.js"); //Menjalankan koneksi ke MongoDB
+const connectDB = require("./utils/db.js"); //Menjalankan koneksi ke MongoDB
 const expressLayouts = require("express-ejs-layouts");
 const { searchResep, detailResep, addMyfav, loadMyfav, deleteMyfav } = require("./utils/resep.js");
 const { generatePdf } = require("./utils/pdf.js");
@@ -38,6 +38,16 @@ app.use(
   }),
 );
 app.use(flash());
+
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Database connection failed");
+  }
+});
 
 //menu resep
 app.get("/", async (req, res) => {
@@ -289,6 +299,10 @@ app.use((req, res) => {
   res.send("<h1>404</h1>");
 });
 
-app.listen(port, "0.0.0.0", () => {
-  console.log(`Example app listening on port ${port}`);
-});
+if (process.env.VERCEL !== "1") {
+  app.listen(port, "0.0.0.0", () => {
+    console.log(`Example app listening on port ${port}`);
+  });
+}
+
+module.exports = app;
