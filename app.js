@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 require("./utils/db.js"); //Menjalankan koneksi ke MongoDB
 const expressLayouts = require("express-ejs-layouts");
 const { searchResep, detailResep, addMyfav, loadMyfav, deleteMyfav } = require("./utils/resep.js");
