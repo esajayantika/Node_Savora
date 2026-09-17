@@ -15,7 +15,7 @@ delFav.forEach((tombol) => {
   //setiap tombol delete di klik lakukan fetch url dan tampilkan notif
   tombol.addEventListener("click", async () => {
     const id = tombol.dataset.id;
-    if (confirm("Yakin ingin menghapus dari favorit?")) {
+    if (confirm("Are you sure you want to remove this from favorites?")) {
       try {
         const response = await fetch(`/myfav/${id}`, { method: "DELETE" });
         //ambil respon jsonnya
@@ -40,7 +40,7 @@ delFav.forEach((tombol) => {
         }
       } catch (err) {
         console.error("Error:", err);
-        alert("Gagal menghapus data");
+        alert("Failed to delete data");
       }
     }
   });
